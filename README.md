@@ -1,6 +1,6 @@
 # Overview of Project:
 
-The purpose of this project is to visually show earthquakes and their relation to the tectonic plates on the earth, for a period of the last seven previous days.<br>
+The purpose of this project is to visually show earthquakes and their relation to tectonic plates on earth, for a period of the last seven days.<br>
 Our problematic is how to retrieve GeoJson earthquake data from open-sources website and then showcase our finding on an interactive map containing multiple layers giving access to different information.<br>
 
 
