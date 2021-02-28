@@ -61,9 +61,6 @@ L.control.layers(baseMaps, overlays, {
     collapsed: false,
 }).addTo(map);
 
-
-
-
 // Retrieve the earthquake GeoJSON data.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data) {
 
@@ -110,7 +107,6 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     }
     return magnitude * 4;
   }
-
   // Creating a GeoJSON layer with the retrieved data.
   L.geoJson(data, {
     	// We turn each feature into a circleMarker on the map.
@@ -127,8 +123,8 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     }
   }).addTo(allEarthquakes);
 
-  // Then we add the earthquake layer to our map.
-  allEarthquakes.addTo(map);
+// Then we add the earthquake layer to our map.
+allEarthquakes.addTo(map);
 // CLose the brace and parenthesis for the d3.json allEarthquakes call back.
 });
 
@@ -158,9 +154,7 @@ d3.json(majorEarthquake).then(function(data) {
             if (magnitude > 4) {
               return "#ea822c";
             }
-
               return "#ee9c00";
-
         }
 
     // 6. Use the function that determines the radius of the earthquake marker based on its magnitude.
@@ -170,7 +164,6 @@ d3.json(majorEarthquake).then(function(data) {
         }
         return magnitude * 4;
       }
-
     // 7. Creating a GeoJSON layer with the retrieved data that adds a circle to the map
     // sets the style of the circle, and displays the magnitude and location of the earthquake
     //  after the marker has been created and styled.
@@ -197,7 +190,7 @@ d3.json(majorEarthquake).then(function(data) {
 // Then we add the earthquake layer to our map.
 allEarthquakes.addTo(map);
 
-// Here we create a legend control object.
+// Here we create a legend control object fo the Earthquake layer.
 let legend1 = L.control({
   position: "bottomright"
 });
@@ -205,7 +198,6 @@ let legend1 = L.control({
 // Then add all the details for the legend
 legend1.onAdd = function() {
   let div = L.DomUtil.create("div", "info legend");
-
   const magnitudes = [0, 1, 2, 3, 4, 5];
   const colors = [
     "#98ee00",
@@ -228,7 +220,8 @@ legend1.onAdd = function() {
 
   // Finally, we our legend to the map.
 legend1.addTo(map);
-// Here we create a legend control object.
+
+// Here we create a legend control object for the Major Earthquake layer.
 let legend2 = L.control({
     position: "bottomleft",
 });
